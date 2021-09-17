@@ -1,5 +1,6 @@
-const { ethers } = require("ethers");
-const { sendEther } = require("./util")
+const { ethers } = require("ethers")
+const BN = require("bn.js")
+const { sendEther, pow  } = require("./util")
 const { DAI, DAI_WHALE, USDC, USDC_WHALE, USDT, USDT_WHALE } = require("./config")
 
 const IERC20 = artifacts.require("IERC20")
@@ -9,30 +10,26 @@ const testDyDx = artifacts.require("testDyDx")
 const SOLO = "0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e"
 
 contract("testDyDx", (accounts) => {
-  const WHALE = USDT_WHALE
-  const TOKEN = USDT
+  const WHALE = USDC_WHALE
+  const TOKEN = USDC
   const DECIMALS = 6
-  const FUND_AMOUNT = ethers.utils.parseEther("20")
-  const BORROW_AMOUNT = ethers.utils.parseEther("10")
+  const FUND_AMOUNT = pow(10, DECIMALS).mul(new BN(2000000))
+  const BORROW_AMOUNT = pow(10, DECIMALS).mul(new BN(1000000))
 
   let testDyDx
   let token
-  /*module.exports = function (deployer) {
-    deployer.deploy(testDyDx);
-  };
-  */
   beforeEach(async () => {
-    module.exports = function (deployer) {
-      deployer.deploy(testDyDx);
-    };
-    testDyDx = await testDyDx
+    
+    //testDyDx = await testDyDx
     token = await ERC20.at(TOKEN)
-    //testDyDx = await testDyDx.new()
+    testDyDx = await testDyDx
 
     await sendEther(web3, accounts[0], WHALE, 1)
 
     // send enough token to cover fee
     const bal = await token.balanceOf(WHALE)
+    console.log(`whale balance: ${bal}`)
+    console.log(`here`)
     assert(bal.gte(FUND_AMOUNT), "balance < fund")
     await token.transfer(testDyDx.address, FUND_AMOUNT, {
       from: WHALE,
@@ -49,7 +46,7 @@ contract("testDyDx", (accounts) => {
     })
 
     console.log(`${await testDyDx.flashUser()}`)
-
+    
     for (const log of tx.logs) {
       console.log(log.args.message, log.args.val.toString())
     }
