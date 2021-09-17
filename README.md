@@ -6,7 +6,7 @@ Steps:
 
 1: Use "truffle compile", to compile the contract, using your terminal
 
-2: Use "source .env" to load the environment variables in your terminal
+2: Use "source .env" to load the environment variables into your terminal
 
 3: Use the following comman to fork the mainnet: "npx ganache-cli --fork https://mainnet.infura.io/v3/$INFURA_PROJECT --unlock $WETH_WHALE --unlock $DAI_WHALE --unlock $USDC_WHALE --unlock $USDT_WHALE --unlock $WBTC_WHALE --networkId 1". You can use any networkId because I have set the networkId to any, for ease of use
 
