@@ -49,7 +49,7 @@ bal - repay: (balance of contract once the flashloan has been paid off)
 **6:** (optional step) you may call the functions of the contract yourself, to test out the contract anyway you want, the code has been commented for this purpose
 
 ## Note
-Kindly note that, this project was created by following a bunch of tutorials, seeing existing opensource project and reading the documentation of dydx and flashloan in general. So the work present in these files could be part one of some other projects that you might have seen or used somewhere else. If you need any or encounter any problem at any of given, kindly let me know and I'll help you out asap. 
+Kindly note that, this project was created by following a bunch of tutorials, seeing existing opensource project and reading the documentation of dydx and flashloan in general. So the work present in these files could be part some other projects that you might have seen or used somewhere else. If you need any or encounter any problem at any of given time, kindly let me know and I'll help you out asap. 
 
 Contact email: anas.azam40@gmail.com
 
