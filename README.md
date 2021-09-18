@@ -18,7 +18,7 @@ Steps:
 **2:** Use "source .env" to load the environment variables into your terminal
 
 **3:** Use the following comman to fork the mainnet: "npx ganache-cli \
---fork https://mainnet.infura.io/v3/$WEB3_INFURA_PROJECT_ID \
+--fork https://mainnet.infura.io/v3/$INFURA_PROJECT \
 --unlock $WETH_WHALE \
 --unlock $DAI_WHALE \
 --unlock $USDC_WHALE \
