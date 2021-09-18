@@ -17,16 +17,22 @@ Steps:
 
 **2:** Use "source .env" to load the environment variables into your terminal
 
-**3:** Use the following comman to fork the mainnet: "npx ganache-cli \
+**3:** Use the following comman to fork the mainnet: 
+
+"npx ganache-cli \
 --fork https://mainnet.infura.io/v3/$INFURA_PROJECT \
 --unlock $WETH_WHALE \
 --unlock $DAI_WHALE \
 --unlock $USDC_WHALE \
 --unlock $USDT_WHALE \
 --unlock $WBTC_WHALE \
---networkId 1". You can use any networkId because I have set the networkId to any, for ease of use
+--networkId 1" 
 
-**4:** Once step 3's command is working, open another terminal and enter this command to run the test for this smart contract: "env $(cat .env) npx truffle test --network mainnet_fork test/test-dydx-solo-margin.js"
+You can use any networkId because I have set the networkId to any, for ease of use
+
+**4:** Once step 3's command is working, open another terminal and enter this command to run the test for this smart contract: 
+
+"env $(cat .env) npx truffle test --network mainnet_fork test/test-dydx-solo-margin.js"
 
 **5:** Once step 4 has worked, you may see the following output:
 
